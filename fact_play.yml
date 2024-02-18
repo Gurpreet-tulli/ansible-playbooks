@@ -1,0 +1,10 @@
+-
+  name: installing docker based on OS 
+  hosts: all
+  become: true
+  tasks:
+    - name: install Docker on machines
+      apt:
+        name: docker.io
+        state: latest
+      when: ansible_distribution == 'Ubuntu' or ansible_distribution=='Debian'
